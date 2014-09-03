@@ -11,6 +11,10 @@
 
 @implementation AppDelegate
 
+@synthesize pdAudioUnit;
+
+static NSString *const kPatchName = @"patch.pd";
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     NSString* configPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"]; // TODO: add support for Published-Android support
@@ -97,7 +101,27 @@
 	[_window center];
 	
 	[director runWithScene:[self startScene]];
+    
+    self.pdAudioUnit = [[PdAudioUnit alloc] init];
+	[self.pdAudioUnit configureWithSampleRate:44100 numberChannels:2 inputEnabled:NO];
+	[self.pdAudioUnit print];
+    //[self.pdAudioUnit ]
+    
+	void *handle = [PdBase openFile:kPatchName path:[[NSBundle mainBundle] resourcePath]];
+	if( handle ) {
+		AU_LOG(@"patch successfully opened %@.", kPatchName);
+	} else {
+		AU_LOG(@"error: patch failed to open %@.", kPatchName);
+	}
+    
+	[self performSelector:@selector(startAudio) withObject:nil afterDelay:1];
 }
+
+- (void)startAudio {
+	self.pdAudioUnit.active = YES;
+	AU_LOG(@"PdAudioUnit audio active: %@", (self.pdAudioUnit.isActive ? @"YES" : @"NO" ) );
+}
+
 
 - (CCScene*) startScene
 {

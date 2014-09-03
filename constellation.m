@@ -120,10 +120,19 @@
 
     
     
-    CCSprite *j = [CCSprite node];
+    CCDrawNode *j = [CCDrawNode node];
+    [j drawDot:CGPointZero radius:4.0 color:[CCColor whiteColor]];
+    
+    
+    /*
     //[CCSprite spriteWithTexture:[CCTexture textureWithFile:@"saturn-1.png"]];
     [j setScaleX:10/j.contentSize.width];
     [j setScaleY:10/j.contentSize.width];
+    */
+    
+    
+    
+    
     star *s = (star *)[_stars objectAtIndex:0];
     j.position = s.position;
     targetStar = 1;

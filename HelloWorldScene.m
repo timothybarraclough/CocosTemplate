@@ -337,6 +337,14 @@ NSTimeInterval j;
         [grild drawSegmentFrom:p3 to:p4 radius:1 color:c];
         
     }
+    CCActionFadeTo *fadeIn = [CCActionFadeTo actionWithDuration:0.5 opacity:0.0];
+    CCActionFadeTo *fadeOut = [CCActionFadeTo actionWithDuration:0.5 opacity:1.0];
+    
+    CCActionSequence *pulseSequence = [CCActionSequence actions:
+                                 fadeIn, // I get a warning about incompatible pointer types...
+                                 fadeOut,
+                                 nil];
+    [self runAction:[CCActionRepeatForever actionWithAction:pulseSequence]];
     [_grid addChild:grild];
     //_grid.shader = [CCShader shaderNamed:@"MotionBlur"];
 }
