@@ -30,6 +30,7 @@
 
 + (HelloWorldScene *)scene;
 - (id)init;
+-(float)getDivision;
 
 // -----------------------------------------------------------------------
 @end

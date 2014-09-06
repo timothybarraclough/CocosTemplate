@@ -42,7 +42,7 @@
     
     
     //CCActionRotateBy * b = [CCActionEaseInOut actionWithAction:[CCActionRotateBy actionWithDuration:0.5 angle:360.0] rate:3.0];
-    CCActionSequence * b = [CCActionSequence actions:[CCActionEaseIn actionWithAction:[CCActionScaleTo actionWithDuration:0.15 scale:2.0] rate:3.0],[CCActionEaseOut actionWithAction:[CCActionScaleTo actionWithDuration:0.65 scale:1.0] rate:3.0], nil];
+    CCActionSequence * b = [CCActionSequence actions:[CCActionEaseIn actionWithAction:[CCActionScaleTo actionWithDuration:0.15 scale:3.0] rate:3.0],[CCActionEaseOut actionWithAction:[CCActionScaleTo actionWithDuration:0.65 scale:1.0] rate:3.0], nil];
     [self runAction:b];
     /*
     CCParticleSystem *s = (CCParticleSystem *)[CCBReader load:@"explosion"];

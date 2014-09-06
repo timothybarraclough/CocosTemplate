@@ -27,6 +27,8 @@
     
 }
 
+- (void)setSize:(CGPoint)windowSize andDivisions:(int)divs;
+
 -(void)beginTiming;
 
 -(void)addStarAtX:(CGPoint)position;

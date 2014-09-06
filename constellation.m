@@ -17,40 +17,61 @@
 @property (nonatomic) NSString* constellationID;
 @property (nonatomic) NSMutableArray * stars;
 @property (nonatomic) NSMutableArray * times;
+@property (nonatomic) CGPoint windowSize;
+@property (nonatomic) float yTicSize;
+@property (nonatomic) float xTicSize;
+@property (nonatomic) int divisions;
+
 
 @end
 
+const float timeQuantize = 250.0;
+NSInteger numberOfNotes = 7;
+bool needsFinish = false;
+//NSInteger notes[7];
+
 @implementation constellation
 
-/*-(id)init{
+- (void)setSize:(CGPoint)winSize andDivisions:(int)divsx{
     
+
     
-    if (!self){
-    self = [super init];
-        [self setVisible:YES];
-    }
-    return self;
+    self.windowSize = winSize;
+    self.divisions = divsx;
+    self.yTicSize = winSize.y/self.divisions;
+    self.xTicSize = winSize.x/self.divisions;
+    //self.notes  = @[@40, @42, @44, @45, @47, @49, @51];
+    //notes = {40,42,44,45,47,49,51};
     
 }
- */
+
+
+ 
 
 
 -(void)beginTiming{
     
     
-    timeOfLastStar = [Utilities roundNumber:CACurrentMediaTime() * 1000.0f toNearest:200];
-    //[Utilities roundNumber:[NSDate timeIntervalSinceReferenceDate] toNearest:0.15];
-    //NSLog(@"time since....   : %f",timeOfLastStar);
+    timeOfLastStar = [Utilities roundNumber:CACurrentMediaTime() * 1000.0f toNearest:timeQuantize];
+
 
 }
 
-
+-(int)getMidiNoteNumber:(int)index{
+    
+    int notes[] = {60,61,63,65,68,69,71};
+    
+    int octave = floorf(12 * (index / numberOfNotes));
+    
+    return notes[index% numberOfNotes] + octave;
+    
+}
 
 -(void)addStarAtX:(CGPoint)p{
     
+    CGPoint pointIndex = CGPointMake(p.x / self.xTicSize, p.y / self.yTicSize);
     
     if (_stars == nil){
-        
 
         line = [CCDrawNode node];
         
@@ -72,29 +93,28 @@
         }
         
         star *last = (star *)[_stars lastObject];
-        //[line ]
         [line boundingBox];
         [line drawSegmentFrom:last.position to:p radius:1.0 color:[CCColor whiteColor]];
-        //[line se]
+
     }
-    //star *s = [star node];
-    
-    //star *s = [star spriteWithTexture:[CCSprite spriteWithTexture:[CCTexture textureWithFile:@"saturn-1.png"]]];
+
     star *s = [[star alloc ]initWithPosition:p];
+    
     //[s setTexture:[CCSprite spriteWithTexture:[CCTexture textureWithFile:@"saturn-1.png"]]];
    // [s setScaleX:30/s.contentSize.width];
     //[s setScaleY:30/s.contentSize.width];
+    
     [s setPosition:p];
 
     [self addChild:s];
     
-    [PdBase sendFloat:15 + s.position.x / 32 toReceiver:@"sball"];
+    [PdBase sendFloat: [self getMidiNoteNumber:pointIndex.x] toReceiver:@"sball2"];
     [s explode];
     
-    [s setTimeForStar:[Utilities roundNumber:(CACurrentMediaTime() * 1000.0f) - timeOfLastStar toNearest:200]];
+    [s setTimeForStar:[Utilities roundNumber:(CACurrentMediaTime() * 1000.0f) - timeOfLastStar toNearest:timeQuantize]];
     [_stars addObject:s];
     [self beginTiming];
-    NSLog(@"position = x  : %f  y  : %f  time  :  %f",s.position.x,s.position.y,s.getTimeForStar);
+    NSLog(@"position = x  : %f",p.x);
     //NSLog(@"time since last star %f",s.getTimeForStar);
 
 
@@ -106,12 +126,12 @@
     star * e = [_stars objectAtIndex:([_stars count]-1)];
     star * s = [_stars objectAtIndex:0];
     
-    [s setTimeForStar:[Utilities roundNumber:(CACurrentMediaTime() * 1000.0f) - timeOfLastStar toNearest:200]];
+    [s setTimeForStar:[Utilities roundNumber:(CACurrentMediaTime() * 1000.0f) - timeOfLastStar toNearest:timeQuantize]];
     //[[stars firstObject]setTimeForStar:[Utilities timeStamp] - timeOfLastStar];
     NSLog(@"position = x  : %f",fmodf((CACurrentMediaTime() * 1000.0f), 500));
     [line drawSegmentFrom:e.position to:s.position radius:0.8 color:[CCColor grayColor]];
-    
-    [self performSelector:@selector(beginAnimating) withObject:nil afterDelay:(200.0 - fmodf((CACurrentMediaTime() * 1000.0f), 200))/1000.0f];
+    needsFinish = true;
+    [self performSelector:@selector(beginAnimating) withObject:nil afterDelay:(timeQuantize - fmodf((CACurrentMediaTime() * 1000.0f), timeQuantize))/1000.0f];
     
 }
 
@@ -121,14 +141,10 @@
     
     
     CCDrawNode *j = [CCDrawNode node];
+   
     [j drawDot:CGPointZero radius:4.0 color:[CCColor whiteColor]];
     
-    
-    /*
-    //[CCSprite spriteWithTexture:[CCTexture textureWithFile:@"saturn-1.png"]];
-    [j setScaleX:10/j.contentSize.width];
-    [j setScaleY:10/j.contentSize.width];
-    */
+
     
     
     
@@ -141,7 +157,7 @@
     
     star * target = [_stars objectAtIndex:0];
     CCActionCallBlock * note = [CCActionCallBlock actionWithBlock:^{
-        [PdBase sendFloat: 15 + target.position.x / 32 toReceiver:@"sball"];
+        [PdBase sendFloat: [self getMidiNoteNumber:(target.position.x / self.xTicSize)] toReceiver:@"sball2"];
         [target explode];
         
         //NSLog(@"Contacted ball #  :  %lu",(unsigned long)0);
@@ -165,7 +181,7 @@
         //@selector (j) = [@selector(playNote) withObject:i];
         //CCActionCallFunc * note = [CCActionCallFunc actionWithTarget:self selector:@selector(playNote:)];
         CCActionCallBlock * note = [CCActionCallBlock actionWithBlock:^{
-            [PdBase sendFloat:15 + target.position.x / 32 toReceiver:@"sball"];
+            [PdBase sendFloat: [self getMidiNoteNumber:(target.position.x / self.xTicSize)] toReceiver:@"sball2"];
             [target explode];
            // NSLog(@"Contacted ball #  :  %lu",(unsigned long)i);
             
@@ -177,10 +193,7 @@
         
         CCActionRotateTo * r = [CCActionEaseIn actionWithAction:[CCActionRotateTo actionWithDuration:[target getTimeForStar]/1000.0 angle:angle] rate:3.0];
         [rotateActions addObject:r];
-        
-        
-        
-        
+
     }
     
 
@@ -193,10 +206,8 @@
     [j runAction:[CCActionRepeatForever actionWithAction:[CCActionSequence actionWithArray:actions]]];
     //[[self parent] addChild:j];
     [self addChild:j];
-
-    
     [self.parent performSelector:@selector(constellationEnded)];
-    //[self addChild:parcel];
+    
  
     
 }
@@ -205,6 +216,9 @@
     NSLog(@"sender");
     [PdBase sendBangToReceiver:@"ball"];
 }
+
+
+
 
 -(NSString *)getID{
     

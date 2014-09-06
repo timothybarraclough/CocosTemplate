@@ -7,6 +7,7 @@
 //
 
 #import "OSXAppDelegate.h"
+#import "CCBReader.h"
 #import "HelloWorldScene.h"
 
 @implementation AppDelegate
@@ -48,12 +49,19 @@ static NSString *const kPatchName = @"patch.pd";
     
 	sharedFileUtils.enableiPhoneResourcesOniPad = YES;
     sharedFileUtils.searchMode = CCFileUtilsSearchModeDirectory;
+   // sharedFileUtils.searchMode =CCFileUtilsSearchModeSuffix;
     [sharedFileUtils buildSearchResolutionsOrder];
+    
     
     [sharedFileUtils loadFilenameLookupDictionaryFromFile:@"fileLookup.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] loadSpriteFrameLookupDictionaryFromFile:@"spriteFrameFileList.plist"];
     
+    //[CCBReader configureCCFileUtils];
     [self setupCocos2dWithOptions:cocos2dSetup];
+    
+    
+    
+    
     /*
 	CCDirectorMac *director = (CCDirectorMac*) [CCDirector sharedDirector];
 
@@ -126,7 +134,7 @@ static NSString *const kPatchName = @"patch.pd";
 - (CCScene*) startScene
 {
     return [HelloWorldScene scene];
-    //return [CCBReader loadAsScene:@"UI/Menues/Game"];
+    //return [CCBReader loadAsScene:@"MainScene"];
 }
 
 

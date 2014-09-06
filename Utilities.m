@@ -29,6 +29,8 @@ return (number > max) ? max : number;
     return (temp > max) ? max : temp;
 }
 
+
+
 /*
  static inline CGPoint rwAdd(CGPoint a, CGPoint b) {
  return CGPointMake(a.x + b.x, a.y + b.y);

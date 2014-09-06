@@ -9,6 +9,7 @@
 
 #import "HelloWorldScene.h"
 #import "IntroScene.h"
+#import "constellationWindow.h"
 
 #import "CCBReader.h"
 
@@ -26,6 +27,8 @@
 // -----------------------------------------------------------------------
 @interface HelloWorldScene ()
 
+
+@property constellationWindow* constellationFrame;
 @property CCDrawNode* line;
 
 @property CCSprite* grid;
@@ -63,40 +66,96 @@
     // Apple recommend assigning self with supers return value
     self = [super init];
     if (!self) return(nil);
-    
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
     
     // Create a colored background (Dark Grey)
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.3f green:0.3f blue:0.4f alpha:1.0f]];
+    
+    //background.
     [self addChild:background];
     // Create a back button
+    CGSize constWindowSize = CGSizeMake (self.scene.contentSize.height * .95f,self.scene.contentSize.height * .95f);
+    self.constellationFrame = [[constellationWindow alloc]initWithSize:constWindowSize andDivisions:24];
+    self.constellationFrame.positionType = CCPositionTypeNormalized;
+    self.constellationFrame.position = ccp(0.66,0.5);
+    self.constellationFrame.userInteractionEnabled = true;
+    
+    [self addChild:self.constellationFrame];
+    
+    /*
     divisions = 18;
     wid = self.scene.contentSize.height/divisions;
     hei = self.scene.contentSize.height/divisions;
-    NSLog(@"WIDTH NUMBER  %f",wid);
+    
     
     _constellationBank = [[NSMutableDictionary alloc]init];
     
     
     
-    /*
+    
     _button = [CCButton buttonWithTitle:@"finish" fontName:@"Verdana-Bold" fontSize:100.0f];
     _button.positionType = CCPositionTypeNormalized;
     _button.position = ccp(0.75f, 0.5f);
     [_button setTarget:self selector:@selector(finishConstellation:)];
     
     [self addChild:_button];
-    */
+    
+    [CCBReader configureCCFileUtils];
+    CCNode *sideBar = [CCNode node];
+    
+    sideBar.position = CGPointMake(hei*divisions + hei, 0);
+    
+
+    
+    CCSpriteFrame *r1 = [CCSpriteFrame frameWithTexture:[CCTexture textureWithFile:@"red.png"] rectInPixels:CGRectMake(0,0,hei,hei) rotated:false offset:CGPointZero originalSize:CGSizeMake(100, 100)];
+    CCSpriteFrame *r2 = [CCSpriteFrame frameWithTexture:[CCTexture textureWithFile:@"redSel.png"] rectInPixels:CGRectMake(0,0,hei,hei) rotated:false offset:CGPointZero originalSize:CGSizeMake(100, 100)];
+    CCButton *red = [CCButton buttonWithTitle:@"" spriteFrame:r1 highlightedSpriteFrame:r2 disabledSpriteFrame:r2];
+    [red setPosition:CGPointMake(0,1*self.scene.contentSize.height/8)];
+    [red setTarget:self selector:@selector(changeConstButton:)];
+    [red setName:@"pluto"];
+    [sideBar addChild:red];
+    
+    
+    CCSpriteFrame *b1 = [CCSpriteFrame frameWithTexture:[CCTexture textureWithFile:@"blue.png"] rectInPixels:CGRectMake(0,0,hei,hei) rotated:false offset:CGPointZero originalSize:CGSizeMake(hei, hei)];
+    CCSpriteFrame *b2 = [CCSpriteFrame frameWithTexture:[CCTexture textureWithFile:@"blueSel.png"] rectInPixels:CGRectMake(0,0,hei,hei) rotated:false offset:CGPointZero originalSize:CGSizeMake(hei, hei)];
+    CCButton *blue = [CCButton buttonWithTitle:@"" spriteFrame:b1 highlightedSpriteFrame:b2 disabledSpriteFrame:r2];
+    [blue setPosition:CGPointMake(0,3*self.scene.contentSize.height/8)];
+    [blue setTarget:self selector:@selector(changeConstButton:)];
+    [blue setName:@"ceres"];
+    [sideBar addChild:blue];
+    
+    CCSpriteFrame *g1 = [CCSpriteFrame frameWithTexture:[CCTexture textureWithFile:@"green.png"] rectInPixels:CGRectMake(0,0,112,112) rotated:false offset:CGPointZero originalSize:CGSizeMake(hei, hei)];
+    CCSpriteFrame *g2 = [CCSpriteFrame frameWithTexture:[CCTexture textureWithFile:@"greenSel.png"] rectInPixels:CGRectMake(0,0,112,112) rotated:false offset:CGPointZero originalSize:CGSizeMake(hei, hei)];
+    CCButton *green = [CCButton buttonWithTitle:@"" spriteFrame:g1 highlightedSpriteFrame:g2 disabledSpriteFrame:g2];
+    [green setPosition:CGPointMake(0,5*self.scene.contentSize.height/8)];
+    [green setTarget:self selector:@selector(changeConstButton:)];
+    [green setName:@"jupiter"];
+    [sideBar addChild:green];
+    
+    CCSpriteFrame *o1 = [CCSpriteFrame frameWithTexture:[CCTexture textureWithFile:@"orange.png"] rectInPixels:CGRectMake(0,0,112,112) rotated:false offset:CGPointZero originalSize:CGSizeMake(100, 100)];
+    CCSpriteFrame *o2 = [CCSpriteFrame frameWithTexture:[CCTexture textureWithFile:@"orangeSel.png"] rectInPixels:CGRectMake(0,0,112,112) rotated:false offset:CGPointZero originalSize:CGSizeMake(100, 100)];
+    CCButton *oran = [CCButton buttonWithTitle:@"" spriteFrame:o1 highlightedSpriteFrame:o2 disabledSpriteFrame:o2];
+    [oran setPosition:CGPointMake(0,7*self.scene.contentSize.height/8)];
+    [oran setTarget:self selector:@selector(changeConstButton:)];
+    [oran setName:@"saturn"];
+    [sideBar addChild:oran];
+    
+    
+    
+    
+    [self addChild:sideBar];
+    
     CCButton *backButton = [CCButton buttonWithTitle:@"[return]" fontName:@"Verdana-Bold" fontSize:18.0f];
     backButton.positionType = CCPositionTypeNormalized;
-    backButton.position = ccp(0.85f, 0.95f); // Top Right of screen
+    backButton.position = ccp(0.95f, 0.95f); // Top Right of screen
     [backButton setTarget:self selector:@selector(onBackClicked:)];
     [self addChild:backButton];
     _physicsWorld = [CCPhysicsNode node];
     //_physicsWorld.gravity = ccp(0.0, 0.0);
     _physicsWorld.debugDraw = YES;
     [self addChild:_physicsWorld];
+     */
     /*
     CGRect r = CGRectMake(20, 20, self.scene.contentSize.height-40, self.scene.contentSize.height-40);
     CGPoint r1[] = {CGPointMake(20, 20),
@@ -118,7 +177,7 @@
      */
     
     
-    
+    /*
     _line = [CCDrawNode node];
     [self addChild:_line];
     
@@ -142,6 +201,7 @@
     
     //[self.p:walls];
     // done
+     */
 	return self;
 }
 
@@ -201,7 +261,7 @@ NSTimeInterval j;
     */
     //j = event.timestamp;
     CGPoint g = [touch locationInNode:self];
-    oldpoint = CGPointMake([Utilities roundNumber:g.x toNearest:wid],[Utilities roundNumber:g.y toNearest:hei]);
+    oldpoint = CGPointMake([Utilities roundNumber:g.x toNearest:wid],[Utilities roundNumber:g.y toNearest:wid]);
     if (oldpoint.x > 0 && oldpoint.y > 0 && oldpoint.y < self.scene.contentSize.height && oldpoint.x < self.scene.contentSize.height)
     [_currentConstellation addStarAtX:oldpoint];
     
@@ -311,9 +371,38 @@ NSTimeInterval j;
 }
 - (void)onBackClicked:(id)sender
 {
+    
     // back to intro scene with transition
     [[CCDirector sharedDirector] replaceScene:[IntroScene scene]
-                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:1.0f]];
+                               withTransition:[CCTransition transitionCrossFadeWithDuration: 0.5f]];
+}
+
+- (void)jupiter:(id)sender
+{
+    // back to intro scene with transition
+    NSLog(@"Jupiter Pressed");
+}
+
+- (void)saturn:(id)sender
+{
+    // back to intro scene with transition
+    NSLog(@"saturn Pressed");
+}
+
+- (void)ceres:(id)sender
+{
+    // back to intro scene with transition
+    NSLog(@"ceres Pressed");
+}
+
+- (void)changeConstButton:(id)sender
+{
+    
+    
+    CCButton *g = (CCButton *)sender;
+    // back to intro scene with transition
+    NSLog(g.name);
+    [self.currentConstellation setID:g.name];
 }
 
 // -----------------------------------------------------------------------
@@ -365,6 +454,10 @@ NSTimeInterval j;
     [self addChild:_currentConstellation];
     [_currentConstellation setID:@"two"];
 
+}
+
+-(float)getDivision{
+    return hei;
 }
 
 @end
