@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		541B95CE19B6ED6800D14F19 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 541B95CD19B6ED6800D14F19 /* CoreAudio.framework */; };
-		54628F6019BD5028005F54D0 /* libpd-osx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54628F5719BD4FE2005F54D0 /* libpd-osx.a */; };
-		54628F6119BD502E005F54D0 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54628F5D19BD4FFE005F54D0 /* libcocos2d.a */; };
+		542D816E19BD692B00824F3E /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 542D816519BD681D00824F3E /* libcocos2d.a */; };
 		547816A519B6EB4B007943B8 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547816A419B6EB4B007943B8 /* CoreFoundation.framework */; };
 		548C8C3419B5EDFB002567FD /* HelloWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 548C8C2C19B5EDFB002567FD /* HelloWorldScene.m */; };
 		548C8C3719B5EDFB002567FD /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 548C8C3219B5EDFB002567FD /* IntroScene.m */; };
@@ -74,30 +73,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		54628F5419BD4FE2005F54D0 /* PBXContainerItemProxy */ = {
+		542D815219BD670100824F3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 54A66EBD19B6E68B00A6E327 /* libpd.xcodeproj */;
+			containerPortal = 542D814D19BD670000824F3E /* libpd.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = "libpd-ios";
 		};
-		54628F5619BD4FE2005F54D0 /* PBXContainerItemProxy */ = {
+		542D815419BD670100824F3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 54A66EBD19B6E68B00A6E327 /* libpd.xcodeproj */;
+			containerPortal = 542D814D19BD670000824F3E /* libpd.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 119013AB1486450C00086F19;
 			remoteInfo = "libpd-osx";
 		};
-		54628F5C19BD4FFE005F54D0 /* PBXContainerItemProxy */ = {
+		542D816419BD681D00824F3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 54CC92B819B6A4F80015F502 /* cocos2d-osx.xcodeproj */;
+			containerPortal = 542D815F19BD681C00824F3E /* cocos2d-osx.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E01E663D121CA00A001A484F;
 			remoteInfo = cocos2d;
 		};
-		54628F5E19BD4FFE005F54D0 /* PBXContainerItemProxy */ = {
+		542D816619BD681D00824F3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 54CC92B819B6A4F80015F502 /* cocos2d-osx.xcodeproj */;
+			containerPortal = 542D815F19BD681C00824F3E /* cocos2d-osx.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D37EE9FC187D4E7700CB5EF2;
 			remoteInfo = ObjectiveChipmunk;
@@ -122,6 +121,8 @@
 		0B7509D80F3544F6A8BE5A03 /* libPods-AstralCocos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AstralCocos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		274AFED135C042D6ABEE1067 /* Pods-AstralOSX.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AstralOSX.xcconfig"; path = "Pods/Pods-AstralOSX.xcconfig"; sourceTree = "<group>"; };
 		541B95CD19B6ED6800D14F19 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreAudio.framework; sourceTree = DEVELOPER_DIR; };
+		542D814D19BD670000824F3E /* libpd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpd.xcodeproj; path = Source/libs/libpd/libpd.xcodeproj; sourceTree = "<group>"; };
+		542D815F19BD681C00824F3E /* cocos2d-osx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "cocos2d-osx.xcodeproj"; path = "Source/libs/cocos2d-iphone/cocos2d-osx.xcodeproj"; sourceTree = "<group>"; };
 		547816A419B6EB4B007943B8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		548C8C2919B5EDFB002567FD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		548C8C2A19B5EDFB002567FD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -131,7 +132,6 @@
 		548C8C3219B5EDFB002567FD /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
 		548C8C3919B5EE3C002567FD /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		548C8C3A19B5EE3C002567FD /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
-		54A66EBD19B6E68B00A6E327 /* libpd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpd.xcodeproj; path = ../cocoapd/libpd/libpd.xcodeproj; sourceTree = "<group>"; };
 		54A66ED419B6E91C00A6E327 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/AudioUnit.framework; sourceTree = DEVELOPER_DIR; };
 		54B6D29D19B6BFED00BF9CDA /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenAL.framework; sourceTree = DEVELOPER_DIR; };
 		54B6D29F19B6C05500BF9CDA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
@@ -511,7 +511,6 @@
 		54CC927519B69ADA0015F502 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		54CC927719B69ADA0015F502 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldLayer.h; path = Classes/HelloWorldLayer.h; sourceTree = "<group>"; };
 		54CC927819B69ADA0015F502 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HelloWorldLayer.m; path = Classes/HelloWorldLayer.m; sourceTree = "<group>"; };
-		54CC92B819B6A4F80015F502 /* cocos2d-osx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "cocos2d-osx.xcodeproj"; path = "../Cocos2DShaderCookbook/Cocos2D/cocos2d-osx.xcodeproj"; sourceTree = "<group>"; };
 		54CC92CD19B6A6490015F502 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		54CC92CF19B6A6560015F502 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		54CC92D319B6A9900015F502 /* libPods-AstralCocos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPods-AstralCocos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -554,8 +553,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54628F6119BD502E005F54D0 /* libcocos2d.a in Frameworks */,
-				54628F6019BD5028005F54D0 /* libpd-osx.a in Frameworks */,
+				542D816E19BD692B00824F3E /* libcocos2d.a in Frameworks */,
 				541B95CE19B6ED6800D14F19 /* CoreAudio.framework in Frameworks */,
 				547816A519B6EB4B007943B8 /* CoreFoundation.framework in Frameworks */,
 				54A66ED519B6E91C00A6E327 /* AudioUnit.framework in Frameworks */,
@@ -595,20 +593,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		54628F5019BD4FE1005F54D0 /* Products */ = {
+		542D814E19BD670000824F3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54628F5519BD4FE2005F54D0 /* libpd-ios.a */,
-				54628F5719BD4FE2005F54D0 /* libpd-osx.a */,
+				542D815319BD670100824F3E /* libpd-ios.a */,
+				542D815519BD670100824F3E /* libpd-osx.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		54628F5819BD4FFE005F54D0 /* Products */ = {
+		542D816019BD681C00824F3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54628F5D19BD4FFE005F54D0 /* libcocos2d.a */,
-				54628F5F19BD4FFE005F54D0 /* libObjectiveChipmunk.a */,
+				542D816519BD681D00824F3E /* libcocos2d.a */,
+				542D816719BD681D00824F3E /* libObjectiveChipmunk.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1379,8 +1377,8 @@
 		9222E2B918734FF800A246C7 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				54A66EBD19B6E68B00A6E327 /* libpd.xcodeproj */,
-				54CC92B819B6A4F80015F502 /* cocos2d-osx.xcodeproj */,
+				542D814D19BD670000824F3E /* libpd.xcodeproj */,
+				542D815F19BD681C00824F3E /* cocos2d-osx.xcodeproj */,
 				B7378940180761A80076A88C /* cocos2d-ios.xcodeproj */,
 			);
 			name = libs;
@@ -1594,12 +1592,12 @@
 					ProjectRef = B7378940180761A80076A88C /* cocos2d-ios.xcodeproj */;
 				},
 				{
-					ProductGroup = 54628F5819BD4FFE005F54D0 /* Products */;
-					ProjectRef = 54CC92B819B6A4F80015F502 /* cocos2d-osx.xcodeproj */;
+					ProductGroup = 542D816019BD681C00824F3E /* Products */;
+					ProjectRef = 542D815F19BD681C00824F3E /* cocos2d-osx.xcodeproj */;
 				},
 				{
-					ProductGroup = 54628F5019BD4FE1005F54D0 /* Products */;
-					ProjectRef = 54A66EBD19B6E68B00A6E327 /* libpd.xcodeproj */;
+					ProductGroup = 542D814E19BD670000824F3E /* Products */;
+					ProjectRef = 542D814D19BD670000824F3E /* libpd.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1611,32 +1609,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		54628F5519BD4FE2005F54D0 /* libpd-ios.a */ = {
+		542D815319BD670100824F3E /* libpd-ios.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libpd-ios.a";
-			remoteRef = 54628F5419BD4FE2005F54D0 /* PBXContainerItemProxy */;
+			remoteRef = 542D815219BD670100824F3E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		54628F5719BD4FE2005F54D0 /* libpd-osx.a */ = {
+		542D815519BD670100824F3E /* libpd-osx.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libpd-osx.a";
-			remoteRef = 54628F5619BD4FE2005F54D0 /* PBXContainerItemProxy */;
+			remoteRef = 542D815419BD670100824F3E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		54628F5D19BD4FFE005F54D0 /* libcocos2d.a */ = {
+		542D816519BD681D00824F3E /* libcocos2d.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libcocos2d.a;
-			remoteRef = 54628F5C19BD4FFE005F54D0 /* PBXContainerItemProxy */;
+			remoteRef = 542D816419BD681D00824F3E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		54628F5F19BD4FFE005F54D0 /* libObjectiveChipmunk.a */ = {
+		542D816719BD681D00824F3E /* libObjectiveChipmunk.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libObjectiveChipmunk.a;
-			remoteRef = 54628F5E19BD4FFE005F54D0 /* PBXContainerItemProxy */;
+			remoteRef = 542D816619BD681D00824F3E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		B737894B180761A90076A88C /* libcocos2d.a */ = {
