@@ -9,7 +9,8 @@ It uses the cocoa branch of libPD to dynamically load pure data patches.
 
 It uses VVOSC to handle networking protocol.
 
-Usage:
+Usage : 
+=============
 
     - git clone --recursive the repo
     - rename the folder to CocosTemplate.spritebuilder
