@@ -9,6 +9,7 @@
 #import "OSXAppDelegate.h"
 #import "CCBReader.h"
 #import "HelloWorldScene.h"
+#import "IntroScene.h"
 
 @implementation AppDelegate
 
