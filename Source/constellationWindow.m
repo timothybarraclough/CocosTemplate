@@ -8,7 +8,7 @@
 
 #import "constellationWindow.h"
 #import "HelloWorldScene.h"
-#import "IntroScene.h"
+
 
 #import "CCBReader.h"
 
@@ -26,9 +26,7 @@
 
 @property CCDrawNode* line;
 
-@property CCSprite* grid;
-@property constellation *currentConstellation;
-@property NSMutableDictionary * constellationBank;
+
 
 @end
 
@@ -96,7 +94,7 @@
     self.currentConstellation = [constellation node];
     [self.currentConstellation setSize:gridSize andDivisions:divs];
     [self addChild:_currentConstellation];
-    [_currentConstellation setID:@"one"];
+    [_currentConstellation setID:[[HelloWorldScene constellationNames] objectAtIndex:0]];
 
 	return self;
 }
@@ -149,12 +147,10 @@ NSTimeInterval j;
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 
     CGPoint g = [touch locationInNode:self];
-    [Utilities roundNumber:gx toNearest:xGridTic];
-    [Utilities roundNumber:gy toNeaest:yGridTic];
-    oldpoint = CGPointMake([Utilities roundNumber:g.x toNearest:xGridTic],[Utilities roundNumber:g.y toNearest:yGridTic]);
-   /* if (oldpoint.x > 0 && oldpoint.y > 0 && oldpoint.y < self.scene.contentSize.height && oldpoint.x < self.scene.contentSize.height) */
-    
-        [_currentConstellation addStarAtX:oldpoint];
+    oldpoint.x = [Utilities constrainInt:[Utilities roundNumber:g.x toNearest:xGridTic] betweenMinimum:xGridTic andMaximum:divisions * xGridTic];
+    oldpoint.y = [Utilities constrainInt:[Utilities roundNumber:g.y toNearest:yGridTic] betweenMinimum:yGridTic andMaximum:divisions * yGridTic];
+    // oldpoint = CGPointMake([Utilities roundNumber:g.x toNearest:xGridTic],[Utilities roundNumber:g.y toNearest:yGridTic]);
+    [_currentConstellation addStarAtX:oldpoint];
     
     //[self addChild:_constellation1]
     
@@ -212,13 +208,7 @@ NSTimeInterval j;
     
     
 }
-- (void)onBackClicked:(id)sender
-{
-    
-    // back to intro scene with transition
-    [[CCDirector sharedDirector] replaceScene:[IntroScene scene]
-                               withTransition:[CCTransition transitionCrossFadeWithDuration: 0.5f]];
-}
+
 
 - (void)jupiter:(id)sender
 {
@@ -297,10 +287,11 @@ NSTimeInterval j;
     //[self addChild: _constellationBank[[_currentConstellation getID]]];
     
     //[_currentConstellation removeFromParentAndCleanup:YES];
+    int j = ([[HelloWorldScene constellationNames] indexOfObject:[self.currentConstellation getID]] + 1) % [HelloWorldScene constellationNames].count;
     self.currentConstellation = [constellation node];
     [self.currentConstellation setSize:gridSize andDivisions:divisions];
     [self addChild:_currentConstellation];
-    [_currentConstellation setID:@"two"];
+    [_currentConstellation setID:[[HelloWorldScene constellationNames] objectAtIndex:j ]];
     
 }
 

@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "Utilities.h"
 #import "star.h"
+#import "CCNode_Private.h"
 
 @interface constellation : CCNode {
     
@@ -19,13 +20,10 @@
     CCDrawNode * line;
     int targetStar;
     
-    
-    
-    
-    
-    
-    
+ 
 }
+
++(NSArray *)constellationColor;
 
 - (void)setSize:(CGPoint)windowSize andDivisions:(int)divs;
 

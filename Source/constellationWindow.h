@@ -7,8 +7,14 @@
 //
 
 #import "CCNode.h"
+#import "cocos2d.h"
+#import "constellation.h"
 
 @interface constellationWindow : CCNode
+
+@property CCSprite* grid;
+@property constellation *currentConstellation;
+@property NSMutableDictionary * constellationBank;
 
 //+ (constellationWindow *)scene;
 - (id)initWithSize:(CGSize)windowSize andDivisions:(int)divs;

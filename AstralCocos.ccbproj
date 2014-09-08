@@ -85,10 +85,6 @@
 			<key>previewFolderHidden</key>
 			<true/>
 		</dict>
-		<key>ccbResources/blue.png</key>
-		<dict/>
-		<key>ccbResources/blueSel.png</key>
-		<dict/>
 		<key>ccbResources/ccbButtonHighlighted.png</key>
 		<dict>
 			<key>scaleFrom</key>
@@ -168,21 +164,30 @@
 		</dict>
 		<key>ccbResources/chiron.png</key>
 		<dict/>
-		<key>ccbResources/green.png</key>
-		<dict/>
-		<key>ccbResources/greenSel.png</key>
-		<dict/>
 		<key>ccbResources/jupiter.png</key>
 		<dict/>
-		<key>ccbResources/orange.png</key>
+		<key>ccbResources/menuButtons</key>
+		<dict>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
+		<key>ccbResources/menuButtons/blue.png</key>
 		<dict/>
-		<key>ccbResources/orangeSel.png</key>
+		<key>ccbResources/menuButtons/blueSel.png</key>
+		<dict/>
+		<key>ccbResources/menuButtons/green.png</key>
+		<dict/>
+		<key>ccbResources/menuButtons/greenSel.png</key>
+		<dict/>
+		<key>ccbResources/menuButtons/orange.png</key>
+		<dict/>
+		<key>ccbResources/menuButtons/orangeSel.png</key>
+		<dict/>
+		<key>ccbResources/menuButtons/red.png</key>
+		<dict/>
+		<key>ccbResources/menuButtons/redSel.png</key>
 		<dict/>
 		<key>ccbResources/pluto.png</key>
-		<dict/>
-		<key>ccbResources/red.png</key>
-		<dict/>
-		<key>ccbResources/redSel.png</key>
 		<dict/>
 		<key>ccbResources/saturn.png</key>
 		<dict/>

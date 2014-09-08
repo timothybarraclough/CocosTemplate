@@ -32,6 +32,24 @@ bool needsFinish = false;
 
 @implementation constellation
 
++(NSArray *)constellationColor{
+    
+    
+    static NSArray *color;
+    static dispatch_once_t token;
+    dispatch_once(&token, ^{
+        
+        
+        color = [NSArray arrayWithObjects:
+                 [CCColor colorWithRed:0.969 green:0.58 blue:0.118],
+                 [CCColor colorWithRed:0.796 green:0.271 blue:0.267 alpha:1.0],
+                 [CCColor colorWithRed:0.173 green:0.506 blue:0.757 alpha:1.0],
+                 [CCColor colorWithRed:0.349 green:0.737 blue:0.631 alpha:1.0],nil];
+    });
+    
+    return color;
+}
+
 - (void)setSize:(CGPoint)winSize andDivisions:(int)divsx{
     
 
@@ -40,6 +58,14 @@ bool needsFinish = false;
     self.divisions = divsx;
     self.yTicSize = winSize.y/self.divisions;
     self.xTicSize = winSize.x/self.divisions;
+    
+    [self setCascadeColorEnabled:true];
+    //self.shaderProgram = [CCShader shaderNamed:@"changeColorShader.fsh"];
+   // self.shader = [CCShader shaderNamed:@"changeColorShader"];
+    
+    
+    
+    
     //self.notes  = @[@40, @42, @44, @45, @47, @49, @51];
     //notes = {40,42,44,45,47,49,51};
     
@@ -59,7 +85,7 @@ bool needsFinish = false;
 
 -(int)getMidiNoteNumber:(int)index{
     
-    int notes[] = {60,61,63,65,68,69,71};
+    int notes[] = {60,61,63,65,67,68,70};
     
     int octave = floorf(12 * (index / numberOfNotes));
     
@@ -107,8 +133,8 @@ bool needsFinish = false;
     [s setPosition:p];
 
     [self addChild:s];
+    [self listToPD:pointIndex.x :pointIndex.y ];
     
-    [PdBase sendFloat: [self getMidiNoteNumber:pointIndex.x] toReceiver:@"sball2"];
     [s explode];
     
     [s setTimeForStar:[Utilities roundNumber:(CACurrentMediaTime() * 1000.0f) - timeOfLastStar toNearest:timeQuantize]];
@@ -128,7 +154,7 @@ bool needsFinish = false;
     
     [s setTimeForStar:[Utilities roundNumber:(CACurrentMediaTime() * 1000.0f) - timeOfLastStar toNearest:timeQuantize]];
     //[[stars firstObject]setTimeForStar:[Utilities timeStamp] - timeOfLastStar];
-    NSLog(@"position = x  : %f",fmodf((CACurrentMediaTime() * 1000.0f), 500));
+    //NSLog(@"position = x  : %f",fmodf((CACurrentMediaTime() * 1000.0f), 500));
     [line drawSegmentFrom:e.position to:s.position radius:0.8 color:[CCColor grayColor]];
     needsFinish = true;
     [self performSelector:@selector(beginAnimating) withObject:nil afterDelay:(timeQuantize - fmodf((CACurrentMediaTime() * 1000.0f), timeQuantize))/1000.0f];
@@ -157,7 +183,10 @@ bool needsFinish = false;
     
     star * target = [_stars objectAtIndex:0];
     CCActionCallBlock * note = [CCActionCallBlock actionWithBlock:^{
-        [PdBase sendFloat: [self getMidiNoteNumber:(target.position.x / self.xTicSize)] toReceiver:@"sball2"];
+       // [PdBase sendFloat: [self getMidiNoteNumber:(target.position.x / self.xTicSize)] toReceiver:@"sball2"];
+        
+        [self listToPD:target.position.x/self.xTicSize :target.position.y/self.yTicSize ];
+        
         [target explode];
         
         //NSLog(@"Contacted ball #  :  %lu",(unsigned long)0);
@@ -181,7 +210,11 @@ bool needsFinish = false;
         //@selector (j) = [@selector(playNote) withObject:i];
         //CCActionCallFunc * note = [CCActionCallFunc actionWithTarget:self selector:@selector(playNote:)];
         CCActionCallBlock * note = [CCActionCallBlock actionWithBlock:^{
-            [PdBase sendFloat: [self getMidiNoteNumber:(target.position.x / self.xTicSize)] toReceiver:@"sball2"];
+           // [PdBase sendFloat: [self getMidiNoteNumber:(target.position.x / self.xTicSize)] toReceiver:@"sball2"];
+            
+            [self listToPD:target.position.x/self.xTicSize :target.position.y/self.yTicSize ];
+
+            
             [target explode];
            // NSLog(@"Contacted ball #  :  %lu",(unsigned long)i);
             
@@ -206,6 +239,7 @@ bool needsFinish = false;
     [j runAction:[CCActionRepeatForever actionWithAction:[CCActionSequence actionWithArray:actions]]];
     //[[self parent] addChild:j];
     [self addChild:j];
+    self.opacity = 0.5;
     [self.parent performSelector:@selector(constellationEnded)];
     
  
@@ -215,6 +249,20 @@ bool needsFinish = false;
 -(void)playNote:(id)sender{
     NSLog(@"sender");
     [PdBase sendBangToReceiver:@"ball"];
+}
+
+-(void)listToPD:(float)x :(float)y{
+    
+    NSArray *package = [NSArray arrayWithObjects:
+                        [NSNumber numberWithFloat: [self getMidiNoteNumber:x]],
+                        [NSNumber numberWithFloat: (y * 127.0/self.divisions)],
+                        nil];
+    
+   // NSLog(@"Note Pair = %f  ,  %f",[self getMidiNoteNumber:x],64 + y * 64.0/self.divisions);
+    
+    //[PdBase sendFloat: [self getMidiNoteNumber:pointIndex.x] toReceiver:@"sball2"];
+    [PdBase sendList:package toReceiver:@"sball3"];
+    
 }
 
 
@@ -228,6 +276,9 @@ bool needsFinish = false;
 -(void)setID:(NSString *)myid{
     
     _constellationID = myid;
+    int index = [[HelloWorldScene constellationNames] indexOfObject:myid];
+    for (CCNode *child in self.children)
+    child.colorRGBA = [[constellation constellationColor] objectAtIndex:index];
 }
 
 @end

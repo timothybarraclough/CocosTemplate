@@ -27,9 +27,12 @@
 #X obj 549 221 r ball;
 #X obj -43 185 loadbang;
 #X obj 664 297 r wall;
-#N canvas 0 22 603 370 (subpatch) 1;
+#N canvas 0 22 603 370 (subpatch) 0;
 #X array noteArray 7 float 3;
 #A 0 40 42 43 45 47 48 50;
+#X obj 37 37;
+#X msg 37 59;
+#X connect 1 0 2 0;
 #X coords 0 370 1 369 200 140 0;
 #X restore 239 25 graph;
 #X obj 311 91 tabread noteArray;
@@ -60,6 +63,14 @@
 #X obj 138 48 % 8;
 #X msg 814 90 0;
 #X obj 252 239 r sball2;
+#X obj 268 281 unpack;
+#X obj 350 238 r sball3;
+#X obj 458 379 list;
+#X msg 352 297 read \$1 \$2;
+#X obj 627 480 oscillator;
+#X msg 276 369 88 \$1;
+#X obj 470 164 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 4500 1;
 #X connect 1 0 2 0;
 #X connect 3 0 6 0;
 #X connect 3 1 5 0;
@@ -111,3 +122,9 @@
 #X connect 50 0 36 0;
 #X connect 51 0 45 1;
 #X connect 52 0 33 0;
+#X connect 54 0 56 0;
+#X connect 54 0 7 0;
+#X connect 57 0 3 0;
+#X connect 58 0 7 0;
+#X connect 58 0 57 0;
+#X connect 59 0 58 0;

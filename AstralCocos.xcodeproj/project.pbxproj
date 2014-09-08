@@ -400,6 +400,15 @@
 		548C8C3B19B5EE3C002567FD /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 548C8C3A19B5EE3C002567FD /* Utilities.m */; };
 		54A66ECE19B6E6CF00A6E327 /* libpd-osx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A66EC519B6E68B00A6E327 /* libpd-osx.a */; };
 		54A66ED519B6E91C00A6E327 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A66ED419B6E91C00A6E327 /* AudioUnit.framework */; };
+		54B326A619BBFA43004E7816 /* buttonMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 54B326A419BBFA43004E7816 /* buttonMenu.h */; };
+		54B326A719BBFA43004E7816 /* buttonMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B326A519BBFA43004E7816 /* buttonMenu.m */; };
+		54B326A819BBFA43004E7816 /* buttonMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B326A519BBFA43004E7816 /* buttonMenu.m */; };
+		54B48AA819BD11FE004B869C /* menuButtons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54B48AA619BD11FE004B869C /* menuButtons.plist */; };
+		54B48AA919BD11FE004B869C /* menuButtons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54B48AA619BD11FE004B869C /* menuButtons.plist */; };
+		54B48AAA19BD11FE004B869C /* menuButtons.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B48AA719BD11FE004B869C /* menuButtons.png */; };
+		54B48AAB19BD11FE004B869C /* menuButtons.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B48AA719BD11FE004B869C /* menuButtons.png */; };
+		54B48AB419BD3304004B869C /* changeColorShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 54B48AB319BD3304004B869C /* changeColorShader.fsh */; };
+		54B48AB519BD3304004B869C /* changeColorShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 54B48AB319BD3304004B869C /* changeColorShader.fsh */; };
 		54B6D29419B6BC4000BF9CDA /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 548C8C3A19B5EE3C002567FD /* Utilities.m */; };
 		54B6D29619B6BC4F00BF9CDA /* HelloWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 548C8C2C19B5EDFB002567FD /* HelloWorldScene.m */; };
 		54B6D29719B6BC5600BF9CDA /* constellation.m in Sources */ = {isa = PBXBuildFile; fileRef = 548C8C2E19B5EDFB002567FD /* constellation.m */; };
@@ -417,22 +426,6 @@
 		54C1D60419B828CA006FF9A3 /* MainScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C1D60219B828CA006FF9A3 /* MainScene.h */; };
 		54C1D60519B828CA006FF9A3 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C1D60319B828CA006FF9A3 /* MainScene.m */; };
 		54C1D60619B828CA006FF9A3 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C1D60319B828CA006FF9A3 /* MainScene.m */; };
-		54C1D62A19B84558006FF9A3 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62219B84558006FF9A3 /* blue.png */; };
-		54C1D62B19B84558006FF9A3 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62219B84558006FF9A3 /* blue.png */; };
-		54C1D62C19B84558006FF9A3 /* blueSel.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62319B84558006FF9A3 /* blueSel.png */; };
-		54C1D62D19B84558006FF9A3 /* blueSel.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62319B84558006FF9A3 /* blueSel.png */; };
-		54C1D62E19B84558006FF9A3 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62419B84558006FF9A3 /* green.png */; };
-		54C1D62F19B84558006FF9A3 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62419B84558006FF9A3 /* green.png */; };
-		54C1D63019B84558006FF9A3 /* greenSel.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62519B84558006FF9A3 /* greenSel.png */; };
-		54C1D63119B84558006FF9A3 /* greenSel.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62519B84558006FF9A3 /* greenSel.png */; };
-		54C1D63219B84558006FF9A3 /* orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62619B84558006FF9A3 /* orange.png */; };
-		54C1D63319B84558006FF9A3 /* orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62619B84558006FF9A3 /* orange.png */; };
-		54C1D63419B84558006FF9A3 /* orangeSel.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62719B84558006FF9A3 /* orangeSel.png */; };
-		54C1D63519B84558006FF9A3 /* orangeSel.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62719B84558006FF9A3 /* orangeSel.png */; };
-		54C1D63619B84558006FF9A3 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62819B84558006FF9A3 /* red.png */; };
-		54C1D63719B84558006FF9A3 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62819B84558006FF9A3 /* red.png */; };
-		54C1D63819B84558006FF9A3 /* redSel.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62919B84558006FF9A3 /* redSel.png */; };
-		54C1D63919B84558006FF9A3 /* redSel.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C1D62919B84558006FF9A3 /* redSel.png */; };
 		54CC902219B69AD50015F502 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3117B978D7009739AE /* QuartzCore.framework */; };
 		54CC902319B69AD50015F502 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
 		54CC902619B69AD50015F502 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3517B978D7009739AE /* OpenAL.framework */; };
@@ -1310,6 +1303,11 @@
 		548C8C3A19B5EE3C002567FD /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		54A66EBD19B6E68B00A6E327 /* libpd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpd.xcodeproj; path = ../../Users/timothyj/Desktop/cocoapd/libpd/libpd.xcodeproj; sourceTree = "<group>"; };
 		54A66ED419B6E91C00A6E327 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/AudioUnit.framework; sourceTree = DEVELOPER_DIR; };
+		54B326A419BBFA43004E7816 /* buttonMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = buttonMenu.h; path = Source/buttonMenu.h; sourceTree = "<group>"; };
+		54B326A519BBFA43004E7816 /* buttonMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = buttonMenu.m; path = Source/buttonMenu.m; sourceTree = "<group>"; };
+		54B48AA619BD11FE004B869C /* menuButtons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menuButtons.plist; sourceTree = "<group>"; };
+		54B48AA719BD11FE004B869C /* menuButtons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuButtons.png; sourceTree = "<group>"; };
+		54B48AB319BD3304004B869C /* changeColorShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = changeColorShader.fsh; sourceTree = "<group>"; };
 		54B6D29D19B6BFED00BF9CDA /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenAL.framework; sourceTree = DEVELOPER_DIR; };
 		54B6D29F19B6C05500BF9CDA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		54B6D2A019B6C05500BF9CDA /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
@@ -1319,14 +1317,6 @@
 		54B6D53619B6D1DC00BF9CDA /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		54C1D60219B828CA006FF9A3 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = Source/MainScene.h; sourceTree = "<group>"; };
 		54C1D60319B828CA006FF9A3 /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScene.m; path = Source/MainScene.m; sourceTree = "<group>"; };
-		54C1D62219B84558006FF9A3 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blue.png; path = "Published-iOS/ccbResources/resources-phone/blue.png"; sourceTree = "<group>"; };
-		54C1D62319B84558006FF9A3 /* blueSel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueSel.png; path = "Published-iOS/ccbResources/resources-phone/blueSel.png"; sourceTree = "<group>"; };
-		54C1D62419B84558006FF9A3 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green.png; path = "Published-iOS/ccbResources/resources-phone/green.png"; sourceTree = "<group>"; };
-		54C1D62519B84558006FF9A3 /* greenSel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenSel.png; path = "Published-iOS/ccbResources/resources-phone/greenSel.png"; sourceTree = "<group>"; };
-		54C1D62619B84558006FF9A3 /* orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orange.png; path = "Published-iOS/ccbResources/resources-phone/orange.png"; sourceTree = "<group>"; };
-		54C1D62719B84558006FF9A3 /* orangeSel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeSel.png; path = "Published-iOS/ccbResources/resources-phone/orangeSel.png"; sourceTree = "<group>"; };
-		54C1D62819B84558006FF9A3 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red.png; path = "Published-iOS/ccbResources/resources-phone/red.png"; sourceTree = "<group>"; };
-		54C1D62919B84558006FF9A3 /* redSel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redSel.png; path = "Published-iOS/ccbResources/resources-phone/redSel.png"; sourceTree = "<group>"; };
 		54CC902119B69AD50015F502 /* AstralOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstralOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54CC902419B69AD50015F502 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		54CC902919B69AD50015F502 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -3737,6 +3727,8 @@
 				548C8C2C19B5EDFB002567FD /* HelloWorldScene.m */,
 				544EEAC019B933B2002F2AD4 /* constellationWindow.h */,
 				544EEAC119B933B2002F2AD4 /* constellationWindow.m */,
+				54B326A419BBFA43004E7816 /* buttonMenu.h */,
+				54B326A519BBFA43004E7816 /* buttonMenu.m */,
 				548C8C2D19B5EDFB002567FD /* constellation.h */,
 				548C8C2E19B5EDFB002567FD /* constellation.m */,
 				548C8C2F19B5EDFB002567FD /* star.h */,
@@ -3835,14 +3827,9 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				54C1D62219B84558006FF9A3 /* blue.png */,
-				54C1D62319B84558006FF9A3 /* blueSel.png */,
-				54C1D62419B84558006FF9A3 /* green.png */,
-				54C1D62519B84558006FF9A3 /* greenSel.png */,
-				54C1D62619B84558006FF9A3 /* orange.png */,
-				54C1D62719B84558006FF9A3 /* orangeSel.png */,
-				54C1D62819B84558006FF9A3 /* red.png */,
-				54C1D62919B84558006FF9A3 /* redSel.png */,
+				54B48AB319BD3304004B869C /* changeColorShader.fsh */,
+				54B48AA619BD11FE004B869C /* menuButtons.plist */,
+				54B48AA719BD11FE004B869C /* menuButtons.png */,
 				54F41D1C19B5F8CA00E41A74 /* explosion.ccbi */,
 				54F41D0119B5F25900E41A74 /* saturn-1.png */,
 				54F41D1E19B5F8F000E41A74 /* ccbResources */,
@@ -3872,6 +3859,7 @@
 				544EEAC219B933B2002F2AD4 /* constellationWindow.h in Headers */,
 				54C1D60419B828CA006FF9A3 /* MainScene.h in Headers */,
 				54B6D52819B6CBEC00BF9CDA /* OSXAppDelegate.h in Headers */,
+				54B326A619BBFA43004E7816 /* buttonMenu.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4038,14 +4026,14 @@
 				541B975B19B6EEB600D14F19 /* c_cpfade-help.pd in Resources */,
 				541B975C19B6EEB600D14F19 /* c_cpfade.pd in Resources */,
 				541B975D19B6EEB600D14F19 /* c_drunk-help.pd in Resources */,
-				54C1D62D19B84558006FF9A3 /* blueSel.png in Resources */,
 				541B975E19B6EEB600D14F19 /* c_drunk.pd in Resources */,
-				54C1D63519B84558006FF9A3 /* orangeSel.png in Resources */,
 				541B975F19B6EEB600D14F19 /* c_ead-help.pd in Resources */,
 				541B976019B6EEB600D14F19 /* c_ead.pd in Resources */,
+				54B48AA919BD11FE004B869C /* menuButtons.plist in Resources */,
 				541B976119B6EEB600D14F19 /* c_frand-help.pd in Resources */,
 				541B976219B6EEB600D14F19 /* c_frand.pd in Resources */,
 				541B976319B6EEB600D14F19 /* c_frombus-help.pd in Resources */,
+				54B48AB519BD3304004B869C /* changeColorShader.fsh in Resources */,
 				541B976419B6EEB600D14F19 /* c_frombus.pd in Resources */,
 				541B976519B6EEB600D14F19 /* c_lfo-help.pd in Resources */,
 				541B976619B6EEB600D14F19 /* c_lfo.pd in Resources */,
@@ -4060,7 +4048,6 @@
 				541B976F19B6EEB600D14F19 /* c_mphasor-help.pd in Resources */,
 				541B977019B6EEB600D14F19 /* c_mphasor.pd in Resources */,
 				541B977119B6EEB600D14F19 /* c_multimetro-help.pd in Resources */,
-				54C1D63919B84558006FF9A3 /* redSel.png in Resources */,
 				541B977219B6EEB600D14F19 /* c_multimetro.pd in Resources */,
 				541B977319B6EEB600D14F19 /* c_multipass-help.pd in Resources */,
 				541B977419B6EEB600D14F19 /* c_multipass.pd in Resources */,
@@ -4074,7 +4061,6 @@
 				541B977C19B6EEB700D14F19 /* c_taptap.pd in Resources */,
 				541B977D19B6EEB700D14F19 /* c_tobus-help.pd in Resources */,
 				541B977E19B6EEB700D14F19 /* c_tobus.pd in Resources */,
-				54C1D63119B84558006FF9A3 /* greenSel.png in Resources */,
 				541B977F19B6EEB700D14F19 /* c_urn-help.pd in Resources */,
 				541B978019B6EEB700D14F19 /* c_urn.pd in Resources */,
 				541B978119B6EEB700D14F19 /* c_xfade-help.pd in Resources */,
@@ -4198,7 +4184,6 @@
 				541B97F719B6EEB800D14F19 /* m_beat2ms-help.pd in Resources */,
 				541B97F819B6EEB800D14F19 /* m_beat2ms.pd in Resources */,
 				541B97F919B6EEB800D14F19 /* m_bpm2ms-help.pd in Resources */,
-				54C1D62B19B84558006FF9A3 /* blue.png in Resources */,
 				541B97FA19B6EEB800D14F19 /* m_bpm2ms.pd in Resources */,
 				541B97FB19B6EEB800D14F19 /* m_chorddict-help.pd in Resources */,
 				541B97FC19B6EEB800D14F19 /* m_chorddict.pd in Resources */,
@@ -4257,6 +4242,7 @@
 				541B983119B6EEB900D14F19 /* s_blsaw.pd in Resources */,
 				541B983219B6EEB900D14F19 /* s_blsquare-help.pd in Resources */,
 				541B983319B6EEB900D14F19 /* s_blsquare.pd in Resources */,
+				54B48AAB19BD11FE004B869C /* menuButtons.png in Resources */,
 				541B983419B6EEB900D14F19 /* s_buzz-help.pd in Resources */,
 				541B983519B6EEB900D14F19 /* s_buzz.pd in Resources */,
 				541B983619B6EEB900D14F19 /* s_chip-help.pd in Resources */,
@@ -4285,7 +4271,6 @@
 				541B984D19B6EEBA00D14F19 /* s_loopsmooth-help.pd in Resources */,
 				541B984E19B6EEBA00D14F19 /* s_loopsmooth.pd in Resources */,
 				541B984F19B6EEBA00D14F19 /* s_noish-help.pd in Resources */,
-				54C1D63719B84558006FF9A3 /* red.png in Resources */,
 				541B985019B6EEBA00D14F19 /* s_noish.pd in Resources */,
 				541B985119B6EEBA00D14F19 /* s_noiz-help.pd in Resources */,
 				541B985219B6EEBA00D14F19 /* s_noiz.pd in Resources */,
@@ -4334,7 +4319,6 @@
 				541B987D19B6EEBC00D14F19 /* u_highpass.pd in Resources */,
 				541B987E19B6EEBC00D14F19 /* u_highpassq-help.pd in Resources */,
 				541B987F19B6EEBC00D14F19 /* u_highpassq.pd in Resources */,
-				54C1D62F19B84558006FF9A3 /* green.png in Resources */,
 				541B988019B6EEBC00D14F19 /* u_listdrip-help.pd in Resources */,
 				541B988119B6EEBC00D14F19 /* u_listdrip.pd in Resources */,
 				541B988219B6EEBC00D14F19 /* u_listequal-help.pd in Resources */,
@@ -4378,7 +4362,6 @@
 				541B98A819B6EEBD00D14F19 /* u_robinpolymono-help.pd in Resources */,
 				541B98A919B6EEBD00D14F19 /* u_robinpolymono.pd in Resources */,
 				541B98AA19B6EEBD00D14F19 /* u_samplebank-help.pd in Resources */,
-				54C1D63319B84558006FF9A3 /* orange.png in Resources */,
 				541B98AB19B6EEBD00D14F19 /* u_samplebank.pd in Resources */,
 				541B98AC19B6EEBD00D14F19 /* u_samplebank2-help.pd in Resources */,
 				541B98AD19B6EEBD00D14F19 /* u_samplebank2.pd in Resources */,
@@ -4468,7 +4451,6 @@
 				54F41ECF19B5FC0300E41A74 /* c_taptap.pd in Resources */,
 				54F41ED019B5FC0300E41A74 /* c_tobus-help.pd in Resources */,
 				54F41ED119B5FC0300E41A74 /* c_tobus.pd in Resources */,
-				54C1D62A19B84558006FF9A3 /* blue.png in Resources */,
 				54F41ED219B5FC0300E41A74 /* c_urn-help.pd in Resources */,
 				54F41ED319B5FC0300E41A74 /* c_urn.pd in Resources */,
 				54F41ED419B5FC0300E41A74 /* c_xfade-help.pd in Resources */,
@@ -4496,6 +4478,7 @@
 				54F41EEA19B5FC0300E41A74 /* e_dynproc.pd in Resources */,
 				54F41EEB19B5FC0300E41A74 /* e_fbdelay-help.pd in Resources */,
 				54F41EEC19B5FC0300E41A74 /* e_fbdelay.pd in Resources */,
+				54B48AB419BD3304004B869C /* changeColorShader.fsh in Resources */,
 				54F41EED19B5FC0300E41A74 /* e_fbdelay2.pd in Resources */,
 				54F41EEE19B5FC0300E41A74 /* e_forcepitch-help.pd in Resources */,
 				54F41EEF19B5FC0300E41A74 /* e_forcepitch.pd in Resources */,
@@ -4560,7 +4543,6 @@
 				54F41F2A19B5FC0300E41A74 /* g_nhsl-help.pd in Resources */,
 				54F41F2B19B5FC0300E41A74 /* g_nhsl.pd in Resources */,
 				54F41F2C19B5FC0300E41A74 /* g_pattern32-help.pd in Resources */,
-				54C1D63819B84558006FF9A3 /* redSel.png in Resources */,
 				54F41F2D19B5FC0300E41A74 /* g_pattern32.pd in Resources */,
 				54F41F2E19B5FC0300E41A74 /* g_showimage-help.pd in Resources */,
 				54F41F2F19B5FC0300E41A74 /* g_showimage.pd in Resources */,
@@ -4576,19 +4558,18 @@
 				54F41F3919B5FC0300E41A74 /* g_tgl.pd in Resources */,
 				54F41F3A19B5FC0300E41A74 /* g_vol-help.pd in Resources */,
 				54F41F3B19B5FC0300E41A74 /* g_vol.pd in Resources */,
+				54B48AAA19BD11FE004B869C /* menuButtons.png in Resources */,
 				54F41F3C19B5FC0300E41A74 /* g_vol2-help.pd in Resources */,
 				54F41F3D19B5FC0300E41A74 /* g_vol2.pd in Resources */,
 				54F41F3E19B5FC0300E41A74 /* g.txt in Resources */,
 				54F41F3F19B5FC0300E41A74 /* LICENSE.txt in Resources */,
 				54F41F4019B5FC0300E41A74 /* m_accel_magnitude-help.pd in Resources */,
-				54C1D63419B84558006FF9A3 /* orangeSel.png in Resources */,
 				54F41F4119B5FC0300E41A74 /* m_accel_magnitude.pd in Resources */,
 				54F41F4219B5FC0300E41A74 /* m_accel_pitch-help.pd in Resources */,
 				54F41F4319B5FC0300E41A74 /* m_accel_pitch.pd in Resources */,
 				54F41F4419B5FC0300E41A74 /* m_accel_roll-help.pd in Resources */,
 				54F41F4519B5FC0300E41A74 /* m_accel_roll.pd in Resources */,
 				54F41F4619B5FC0300E41A74 /* m_accel_status-help.pd in Resources */,
-				54C1D63019B84558006FF9A3 /* greenSel.png in Resources */,
 				54F41F4719B5FC0300E41A74 /* m_accel_status.pd in Resources */,
 				54F41F4819B5FC0300E41A74 /* m_autoscale-help.pd in Resources */,
 				54F41F4919B5FC0300E41A74 /* m_autoscale.pd in Resources */,
@@ -4612,7 +4593,6 @@
 				54F41F5B19B5FC0300E41A74 /* m_ms2beat.pd in Resources */,
 				54F41F5C19B5FC0300E41A74 /* m_ms2sm-help.pd in Resources */,
 				54F41F5D19B5FC0300E41A74 /* m_ms2sm.pd in Resources */,
-				54C1D63219B84558006FF9A3 /* orange.png in Resources */,
 				54F41F5E19B5FC0300E41A74 /* m_ratio2intv-help.pd in Resources */,
 				54F41F5F19B5FC0300E41A74 /* m_ratio2intv.pd in Resources */,
 				54F41F6019B5FC0300E41A74 /* m_scale-help.pd in Resources */,
@@ -4670,7 +4650,6 @@
 				54F41F9419B5FC0300E41A74 /* s_fm4.pd in Resources */,
 				54F41F9519B5FC0300E41A74 /* s_fmoscil-help.pd in Resources */,
 				54F41F9619B5FC0300E41A74 /* s_fmoscil.pd in Resources */,
-				54C1D62C19B84558006FF9A3 /* blueSel.png in Resources */,
 				54F41F9719B5FC0300E41A74 /* s_fplaytable-help.pd in Resources */,
 				54F41F9819B5FC0300E41A74 /* s_fplaytable.pd in Resources */,
 				54F41F9919B5FC0300E41A74 /* s_fplaytable2.pd in Resources */,
@@ -4688,6 +4667,7 @@
 				54F41FA519B5FC0300E41A74 /* s_noiz.pd in Resources */,
 				54F41FA619B5FC0300E41A74 /* s_osc-help.pd in Resources */,
 				54F41FA719B5FC0300E41A74 /* s_osc.pd in Resources */,
+				54B48AA819BD11FE004B869C /* menuButtons.plist in Resources */,
 				54F41FA819B5FC0300E41A74 /* s_pinknoise-help.pd in Resources */,
 				54F41FA919B5FC0300E41A74 /* s_pinknoise.pd in Resources */,
 				54F41FAA19B5FC0300E41A74 /* s_playolap-help.pd in Resources */,
@@ -4737,7 +4717,6 @@
 				54F41FD619B5FC0400E41A74 /* u_listequal.pd in Resources */,
 				54F41FD719B5FC0400E41A74 /* u_listfilter-help.pd in Resources */,
 				54F41FD819B5FC0400E41A74 /* u_listfilter.pd in Resources */,
-				54C1D63619B84558006FF9A3 /* red.png in Resources */,
 				54F41FD919B5FC0400E41A74 /* u_listloop-help.pd in Resources */,
 				54F41FDA19B5FC0400E41A74 /* u_listloop.pd in Resources */,
 				54F41FDB19B5FC0400E41A74 /* u_listmap-help.pd in Resources */,
@@ -4791,7 +4770,6 @@
 				54F4200B19B5FC0400E41A74 /* u_splicetrans-help.pd in Resources */,
 				54F4200C19B5FC0400E41A74 /* u_splicetrans.pd in Resources */,
 				54F4200D19B5FC0400E41A74 /* u_sssad.pd in Resources */,
-				54C1D62E19B84558006FF9A3 /* green.png in Resources */,
 				54F4200E19B5FC0400E41A74 /* u_stereo-help.pd in Resources */,
 				54F4200F19B5FC0400E41A74 /* u_stereo.pd in Resources */,
 				54F4201019B5FC0400E41A74 /* u_wrandom-help.pd in Resources */,
@@ -4881,6 +4859,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54B326A819BBFA43004E7816 /* buttonMenu.m in Sources */,
 				54B6D29819B6BC5800BF9CDA /* star.m in Sources */,
 				54C1D60619B828CA006FF9A3 /* MainScene.m in Sources */,
 				54B6D52619B6C8B100BF9CDA /* OSXAppDelegate.m in Sources */,
@@ -4897,6 +4876,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54B326A719BBFA43004E7816 /* buttonMenu.m in Sources */,
 				54F41CFB19B5F02400E41A74 /* AppDelegate.m in Sources */,
 				54C1D60519B828CA006FF9A3 /* MainScene.m in Sources */,
 				548C8C3719B5EDFB002567FD /* IntroScene.m in Sources */,

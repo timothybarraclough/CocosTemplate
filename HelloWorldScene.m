@@ -51,7 +51,22 @@
 #pragma mark - Create & Destroy
 // -----------------------------------------------------------------------
 
-
++(NSArray *)constellationNames{
+    
+    
+    static NSArray *names;
+    static dispatch_once_t token;
+    dispatch_once(&token, ^{
+       
+        
+        names =@[@"Ceres",
+                 @"Pluto",
+                 @"Saturn",
+                 @"Jupiter"];
+    });
+        
+    return names;
+}
 
 
 + (HelloWorldScene *)scene
@@ -78,10 +93,17 @@
     CGSize constWindowSize = CGSizeMake (self.scene.contentSize.height * .95f,self.scene.contentSize.height * .95f);
     self.constellationFrame = [[constellationWindow alloc]initWithSize:constWindowSize andDivisions:24];
     self.constellationFrame.positionType = CCPositionTypeNormalized;
-    self.constellationFrame.position = ccp(0.66,0.5);
+    self.constellationFrame.position = ccp(0.62,0.5);
     self.constellationFrame.userInteractionEnabled = true;
-    
     [self addChild:self.constellationFrame];
+   /* self.constellationNames = [[NSArray alloc]initWithObjects:@"Ceres",
+    @"Pluto",
+    @"Saturn",
+    @"Jupiter",
+    nil];
+    */
+    //, nil
+    //self.constellationNames = [NSArray arrayWithObjects:
     
     /*
     divisions = 18;
@@ -102,9 +124,21 @@
     [self addChild:_button];
     
     [CCBReader configureCCFileUtils];
+     */
+    
+    CGSize menuSize = CGSizeMake(self.scene.contentSize.width * .125f,self.scene.contentSize.height * .90f);
+    buttonMenu *sideBar = [[buttonMenu alloc]initWithSize:menuSize and:4];
+    sideBar.positionType = CCPositionTypeNormalized;
+    sideBar.position = ccp(0.15,0.5);
+    [self addChild:sideBar];
+    
+    /*
     CCNode *sideBar = [CCNode node];
     
-    sideBar.position = CGPointMake(hei*divisions + hei, 0);
+    //sideBar.position = CGPointMake(hei*divisions + hei, 0);
+    sideBar.contentSize = CGSizeMake(self.scene.contentSize.width/4.0, self.contentSize.height);//cSize(0.25, 1.0);
+    sideBar.positionType = CCPositionTypeNormalized;
+    sideBar.position = ccp(0.25,-0.45);
     
 
     
@@ -140,22 +174,9 @@
     [oran setTarget:self selector:@selector(changeConstButton:)];
     [oran setName:@"saturn"];
     [sideBar addChild:oran];
-    
-    
-    
-    
     [self addChild:sideBar];
+*/
     
-    CCButton *backButton = [CCButton buttonWithTitle:@"[return]" fontName:@"Verdana-Bold" fontSize:18.0f];
-    backButton.positionType = CCPositionTypeNormalized;
-    backButton.position = ccp(0.95f, 0.95f); // Top Right of screen
-    [backButton setTarget:self selector:@selector(onBackClicked:)];
-    [self addChild:backButton];
-    _physicsWorld = [CCPhysicsNode node];
-    //_physicsWorld.gravity = ccp(0.0, 0.0);
-    _physicsWorld.debugDraw = YES;
-    [self addChild:_physicsWorld];
-     */
     /*
     CGRect r = CGRectMake(20, 20, self.scene.contentSize.height-40, self.scene.contentSize.height-40);
     CGPoint r1[] = {CGPointMake(20, 20),
@@ -264,6 +285,8 @@ NSTimeInterval j;
     oldpoint = CGPointMake([Utilities roundNumber:g.x toNearest:wid],[Utilities roundNumber:g.y toNearest:wid]);
     if (oldpoint.x > 0 && oldpoint.y > 0 && oldpoint.y < self.scene.contentSize.height && oldpoint.x < self.scene.contentSize.height)
     [_currentConstellation addStarAtX:oldpoint];
+    
+    //CCPhysicsBody
     
     //[self addChild:_constellation1]
     
@@ -402,7 +425,7 @@ NSTimeInterval j;
     CCButton *g = (CCButton *)sender;
     // back to intro scene with transition
     NSLog(g.name);
-    [self.currentConstellation setID:g.name];
+    [self.constellationFrame.currentConstellation setID:g.name];
 }
 
 // -----------------------------------------------------------------------
@@ -440,13 +463,13 @@ NSTimeInterval j;
 
 -(void)constellationEnded{
     
-    if ([_constellationBank objectForKey:[_currentConstellation getID]] != nil){
-        [[_constellationBank objectForKey:[_currentConstellation getID]] removeFromParentAndCleanup:YES];
-        [_constellationBank removeObjectForKey:[_currentConstellation getID]];
+    if ([self.constellationFrame.constellationBank objectForKey:[self.constellationFrame.currentConstellation getID]] != nil){
+        [[self.constellationFrame.constellationBank objectForKey:[self.constellationFrame.currentConstellation getID]] removeFromParentAndCleanup:YES];
+        [self.constellationFrame.constellationBank removeObjectForKey:[self.constellationFrame.currentConstellation getID]];
         
     }
     
-    _constellationBank[[_currentConstellation getID]] = _currentConstellation;
+    self.constellationFrame.constellationBank[[self.constellationFrame.currentConstellation getID]] = self.constellationFrame.currentConstellation;
     //[self addChild: _constellationBank[[_currentConstellation getID]]];
     
     //[_currentConstellation removeFromParentAndCleanup:YES];
