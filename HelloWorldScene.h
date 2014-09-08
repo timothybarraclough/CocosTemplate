@@ -10,10 +10,8 @@
 // Importing cocos2d.h and cocos2d-ui.h, will import anything you need to start using Cocos2D v3
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "buttonMenu.h"
 #import "Utilities.h"
 #import "PdBase.h"
-#import "constellation.h"
 #ifdef __CC_PLATFORM_IOS
 #import <UIKit/UIKit.h>
 
@@ -30,12 +28,7 @@
 
 + (HelloWorldScene *)scene;
 - (id)init;
--(float)getDivision;
-- (void)changeConstButton:(id)sender;
 
-//@property NSArray *constellationNames;
-
-+(NSArray *)constellationNames;
 
 // -----------------------------------------------------------------------
 @end

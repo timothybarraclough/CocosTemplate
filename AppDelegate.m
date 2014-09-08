@@ -15,12 +15,16 @@
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //PURE DATA INITIALIZATION ---------------------------------------
+    /*
     self.ac = [[PdAudioController alloc] init];
 	[self.ac configurePlaybackWithSampleRate:22050 numberChannels:1 inputEnabled:NO mixingEnabled:NO];
     [self.ac configureTicksPerBuffer:4];
     [PdBase addToSearchPath:@"/puredata/"];
 	[PdBase openFile:@"/patch.pd" path:[[NSBundle mainBundle] resourcePath]];
 	[self.ac setActive:YES];
+     
+     */
     
     [CCBReader configureCCFileUtils];
 	// This is the only app delegate method you need to implement when inheriting from CCAppDelegate.
@@ -68,7 +72,7 @@
 -(CCScene *)startScene
 {
 	// This method should return the very first scene to be run when your app starts.
-	return [HelloWorldScene scene];
+	return [IntroScene scene];
     //return [CCBReader loadAsScene:@"MainScene"];
 }
 

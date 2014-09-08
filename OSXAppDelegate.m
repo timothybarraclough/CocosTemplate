@@ -110,6 +110,9 @@ static NSString *const kPatchName = @"patch.pd";
 	
 	[director runWithScene:[self startScene]];
     
+    // PURE DATA INITIALIZATION -----------------------------------------------
+    
+    /*
     self.pdAudioUnit = [[PdAudioUnit alloc] init];
 	[self.pdAudioUnit configureWithSampleRate:44100 numberChannels:2 inputEnabled:NO];
 	[self.pdAudioUnit print];
@@ -123,6 +126,7 @@ static NSString *const kPatchName = @"patch.pd";
 	}
     
 	[self performSelector:@selector(startAudio) withObject:nil afterDelay:1];
+     */
 }
 
 - (void)startAudio {
@@ -133,7 +137,7 @@ static NSString *const kPatchName = @"patch.pd";
 
 - (CCScene*) startScene
 {
-    return [HelloWorldScene scene];
+    return [IntroScene scene];
     //return [CCBReader loadAsScene:@"MainScene"];
 }
 
